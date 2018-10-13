@@ -21,3 +21,40 @@ test('1\n2,3 should return 6', () => {
 test('1, 2\n3\n4 should return 10', () => {
   expect(calc("1,2\n3\n4")).toBe(10);
 });
+test('1, 2\n3\n4 should return 10', () => {
+  expect(calc("-1")).toBe(10);
+});
+
+test('Negatives not allowed', () => {
+	function testCalc(input) {
+		calc(input);
+	}
+	expect(testCalc("-1,2")).toThrowError("Negatives not allowed: -1");
+	expect(testCalc("2,-4,3,-5")).toThrowError(/Negatives/);
+});
+test('2Negatives not allowed2', () => {
+	function testCalc() {
+		calc("-1,2");
+	}
+	expect(testCalc()).toThrowError();
+});
+
+
+/*
+test('-1, 2 should throw Negatives not allowed: -1', () => {
+  expect(calc("-1,2")).toThrow();
+});
+test('2, -4, 3, -5 should throw Negatives not allowed: -4,-5', () => {
+  expect(calc("2,-4,3,-5")).toThrow();
+});
+test('Negatives not allowed', () => {
+	var e = null;
+	function testCalc(input) {
+		try { calc(input); }
+		catch(ex) { e = ex; }
+	}
+  testCalc("-1,2");
+	expect(e).toBeDefined();
+	expect(testCalc("2,-4,3,-5")).toThrowError(/Negatives/);
+});
+*/
