@@ -43,3 +43,6 @@ test('1001, 2 should return 2', () => {
 test('//;\n1;2 should return 3', () => {
   expect(calc("//;\n1;2")).toBe(3);
 });
+test('//;\n1;2,1\n5 should return 9', () => {
+  expect(calc("//;\n1;2,1\n5")).toBe(9);
+});
