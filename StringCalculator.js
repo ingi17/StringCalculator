@@ -1,8 +1,13 @@
 function add(numberStr) {
 	if (!numberStr) return 0; // Skip everything and return 0 if String is empty.
-
-	var splitStr = numberStr.split(/,|\n/),
-		sum = 0,
+	if (numberStr.indexOf("//") == 0) {
+		var delim = numberStr[2],
+			subStr = numberStr.subStr(3, numberStr.length),
+			splitStr = subStr.split(delim);
+	} else {
+		var splitStr = numberStr.split(/,|\n/)
+	}
+	var	sum = 0,
 		neg = [];
 	
 	for (i = 0; i < splitStr.length; i++) {

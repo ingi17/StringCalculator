@@ -40,3 +40,6 @@ test('2, -4, 3, -5 should throw Negatives not allowed: -4,-5', () => {
 test('1001, 2 should return 2', () => {
   expect(calc("1001,2")).toBe(2);
 });
+test('//;\n1;2 should return 3', () => {
+  expect(calc("//;\n1;2")).toBe(3);
+});
