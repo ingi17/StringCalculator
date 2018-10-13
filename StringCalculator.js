@@ -7,10 +7,10 @@ function add(numberStr) {
 	
 	for (i = 0; i < splitStr.length; i++) {
 		if (parseInt(splitStr[i]) < 0) neg.push(splitStr[i]);
-		else sum += parseInt(splitStr[i]);
+		else if (splitStr[i] < 1001) sum += parseInt(splitStr[i]);
 	}
-	if (neg > 0) {
-		throw new Error("Negatives not allowed: " + neg);
+	if (neg.length > 0) {
+		throw 'Negatives not allowed: ' + neg;
 	}
 	return sum;
 }
